@@ -34,7 +34,6 @@ const DetailsScreen = ({ navigation, route }) => {
           source={pet.image}
           style={{
             height: 160,
-            top: 10,
           }}
         >
           {/* Render  Header */}
@@ -59,7 +58,7 @@ const DetailsScreen = ({ navigation, route }) => {
             >
               {pet.name}
             </Text>
-            <Icon name="gender-male" size={25} color={COLORS.grey} />
+            <Icon name="gender-male" size={25} color={COLORS.primary} />
           </View>
 
           {/* Render Pet type and age */}
@@ -75,12 +74,14 @@ const DetailsScreen = ({ navigation, route }) => {
           </View>
 
           {/* Render location and icon */}
+          {/* 
           <View style={{ marginTop: 5, flexDirection: 'row' }}>
             <Icon name="map-marker" color={COLORS.primary} size={20} />
             <Text style={{ fontSize: 14, color: COLORS.grey, marginLeft: 5 }}>
               5 Bulvarna-Kudriavska Street, Kyiv
             </Text>
           </View>
+          */}
         </View>
       </View>
 
@@ -100,7 +101,7 @@ const DetailsScreen = ({ navigation, route }) => {
                   size={25}
                   color={COLORS.primary}
                 />
-                <Text style={{ marginLeft: 12 }}>Sterilization</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Tiêm dại</Text>
               </View>
               <View style={style.shortInfo}>
                 <IconMaterial
@@ -108,19 +109,19 @@ const DetailsScreen = ({ navigation, route }) => {
                   size={25}
                   color={COLORS.primary}
                 />
-                <Text style={{ marginLeft: 12 }}>Injection</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Tiêm phòng bệnh</Text>
               </View>
               <View style={style.shortInfo}>
                 <Icon name="cloud-question" size={25} color={COLORS.pending} />
-                <Text style={{ marginLeft: 12 }}>Vaccination</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Triệt sản</Text>
               </View>
               <View style={style.shortInfo}>
                 <Icon name="cloud-question" size={25} color={COLORS.pending} />
-                <Text style={{ marginLeft: 12 }}>Private diet</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Chế độ ăn riêng</Text>
               </View>
               <View style={style.shortInfo}>
                 <Icon name="cloud-question" size={25} color={COLORS.pending} />
-                <Text style={{ marginLeft: 12 }}>Toilet right place</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Đi vệ sinh đúng</Text>
               </View>
               <View style={style.shortInfo}>
                 <IconMaterial
@@ -128,7 +129,7 @@ const DetailsScreen = ({ navigation, route }) => {
                   size={25}
                   color={COLORS.primary}
                 />
-                <Text style={{ marginLeft: 12 }}>Human friendly</Text>
+                <Text style={{ marginLeft: 12,fontSize:16 }}>Thân thiện</Text>
               </View>
             </View>
           </View>
@@ -137,7 +138,7 @@ const DetailsScreen = ({ navigation, route }) => {
             <Text style={style.title}>Information</Text>
             <View style={style.ruler} />
             <View style={{ marginTop: 12 }}>
-              <Text>Pet found when roaming the street</Text>
+              <Text>{pet.description}</Text>
             </View>
           </View>
           {/* Render Gallery about Pet */}
@@ -172,10 +173,9 @@ const DetailsScreen = ({ navigation, route }) => {
 
 const style = StyleSheet.create({
   detailsContainer: {
-    height: 120,
+    height: 100,
     backgroundColor: COLORS.white,
     marginHorizontal: 20,
-    flex: 1,
     bottom: -40,
     borderRadius: 18,
     elevation: 10,

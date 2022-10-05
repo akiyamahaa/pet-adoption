@@ -7,7 +7,6 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  FlatList,
   ScrollView,
   StyleSheet,
 } from 'react-native';
@@ -18,8 +17,8 @@ const { height } = Dimensions.get('window');
 const petCategories = [
   { name: 'CATS', icon: 'cat' },
   { name: 'DOGS', icon: 'dog' },
-  { name: 'BIRDS', icon: 'bird' },
-  { name: 'BUNNIES', icon: 'rabbit' },
+  // { name: 'BIRDS', icon: 'bird' },
+  // { name: 'BUNNIES', icon: 'rabbit' },
 ];
 
 const Card = ({ pet, navigation }) => {
@@ -34,8 +33,9 @@ const Card = ({ pet, navigation }) => {
           <Image
             source={pet.image}
             style={{
-              width: '100%',
-              height: '100%',
+              height: 150,
+              width: 140,
+              borderRadius: 20,
               resizeMode: 'contain',
             }}
           />
@@ -59,17 +59,9 @@ const Card = ({ pet, navigation }) => {
           <Text style={{ fontSize: 16, marginTop: 5, color: COLORS.dark }}>
             {pet.type}
           </Text>
-          <Text style={{ fontSize: 14, marginTop: 5, color: COLORS.grey }}>
+          <Text style={{ fontSize: 16, marginTop: 5, color: COLORS.secondary }}>
             {pet.age}
           </Text>
-
-          {/* Render distance and the icon */}
-          <View style={{ marginTop: 5, flexDirection: 'row' }}>
-            <Icon name="map-marker" color={COLORS.primary} size={18} />
-            <Text style={{ fontSize: 14, color: COLORS.grey, marginLeft: 5 }}>
-              Distance: {pet.distance} km
-            </Text>
-          </View>
         </View>
       </View>
     </TouchableOpacity>
@@ -117,12 +109,15 @@ const HomeScreen = ({ navigation }) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
               marginTop: 20,
             }}
           >
             {petCategories.map((item, index) => (
-              <View key={'pet' + index} style={{ alignItems: 'center' }}>
+              <View
+                key={'pet' + index}
+                style={{ alignItems: 'center', marginHorizontal: 20 }}
+              >
                 <TouchableOpacity
                   onPress={() => {
                     setSeletedCategoryIndex(index);
@@ -220,8 +215,8 @@ const style = StyleSheet.create({
   cardImageContainer: {
     height: 150,
     width: 140,
-    backgroundColor: COLORS.background,
     borderRadius: 20,
+    backgroundColor: COLORS.background,
   },
 });
 export default HomeScreen;
